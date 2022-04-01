@@ -9,7 +9,6 @@ starterProjects:
 components:
   - name: dev
     container:
-      # In the original upstream of this devfile, the image used is openliberty/devfile-stack:<x.y.z>, which is built from the repository: https://github.com/OpenLiberty/devfile-stack
       image: icr.io/appcafe/open-liberty-devfile-stack:22.0.0.1
       memoryLimit: 768Mi
       mountSources: true
@@ -19,9 +18,6 @@ components:
           name: ep1
           targetPort: 9080
           protocol: http
-#
-#deploy components
-#
   - name: outerloop-build-app
     image:
         imageName: "demo-image:0"
@@ -77,10 +73,6 @@ commands:
       group:
         kind: test
         isDefault: true
-#
-# Build and Deploy cmds
-#
-
   # Build an image using the stack provided dockerfile
   - id: build-image-stack-provided
     apply:
